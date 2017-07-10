@@ -65,39 +65,49 @@ a{
 	font-size: 1.5vw;
 }
 
-#secondary-nav{
+.secondary-nav{
 	display: inline-block;
-	min-height:30px;
-	max-height: 30px;
 	padding-right: 40px;
 }
 .navigation{
+  min-width: 150px;
 	position: relative;
-	padding: .1%;
 	background-color: ghostwhite;
 	text-align: right;
 	
 }
-#secondary-nav a {
+.secondary-nav a {
+  display: inline-block;
 	position: relative;
 	color: #0E76BD;
 	font-size: 18px;
 	padding: 0 15px;
+	height: 30px;
 	
 
 }
+.navigation-main{
+  min-width: 200px;
+  position: relative;
+  width:  100%;
+  background: #0E76BD;
+  display: block;
+}
 
 .MainNav{
-	text-align: center;
-	background: #0E76BD;
-	padding: .1%;
-	height:30px;
+  
+  display: inline-block;
+  position:relative;
+	padding-left: 15%;
+	
 }
 .MainNav a{
+  display: inline-block; 
 	position: relative;
-	color: #E0E0E0;
+  color: #E0E0E0;
 	font-size: 18px;
-	margin-right:1%;
+  padding: 0 15px;
+	height: 30px;
 }
 #header-account-info{
 	width: 8%;
@@ -107,14 +117,16 @@ a{
 	text-align: center;
 	margin: 0 0 1% 0;
 }
-#header-account-info a{
+#header-account-info > #account-links >  a{
+  display: inline-block;
 	color: #0E76BD;
   font-size: 16px;
   margin-bottom: 2%;  
+  width: 100%;
 }
 
 
-/*#secondary-nav a:hover:after
+/*.secondary-nav a:hover:after
 {
   content: attr(data-before);	
   width: 0; 
@@ -127,7 +139,7 @@ a{
   left: 50%;
 }*/
 /*
-#secondary-nav a:active:after
+.secondary-nav a:active:after
 {
   content: '';	
   width: 0; 
@@ -149,7 +161,7 @@ a{
   border-bottom: 5px solid #0E76BD;;
  	padding:0;
   position: absolute;
-  top: 100%;
+  bottom: 0%;
   left: 50%;
   
 }
@@ -164,16 +176,37 @@ a{
   border-bottom: 5px solid #E0E0E0;
  	padding:0;
   position: absolute;
-  top: 100%;
+  bottom: 0%;
   left: 50%;
   
+}
+
+@media only screen and (max-width: 1200px) {
+   #account-links{
+      display: none; 
+   }
+   .arrow-down {
+     display: block;
+   }
+}
+
+.arrow-down {
+  margin:auto;	
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+   border-bottom: 20px solid transparent;
+  border-top: 20px solid #E0E0E0;
+ 	padding:0;
+
 }
 
 main{
 	width: 960px;
 	margin: 30px auto 0 auto; 
 }
-/*#secondary-nav a:link { 
+/*.secondary-nav a:link { 
   color: blue;
 }
 a:visited {
@@ -186,11 +219,73 @@ a:active {
   color: red;
 }*/
 /*numbered navigation*/
+
+.hidden-menu-s{
+    background: ghostwhite;
+    position: absolute;
+    width: 160px;
+    font-family: inherit;
+    right: 0%;
+    top: 30px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #0E76BD;
+    z-index: 5;
+}
+
+.hidden-menu-s > a {
+  position: relative;
+    display: inline-block;
+    width: 100%;
+    font-family: inherit;
+    font-size: 18px;
+    color: #0E76BD;
+    text-align: center;
+    border-bottom: 1px solid;
+    height: 30px;
+  
+}
+
+.hidden-menu-s > a:last-child{
+  border-bottom: none;
+}
+
+.hidden-menu-m{
+    background: #0E76BD;
+    position: absolute;
+    width: 160px;
+    font-family: inherit;
+    left: 0%;
+    top: 30px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #E0E0E0;
+    z-index: 5;
+}
+
+.hidden-menu-m > a {
+  position: relative;
+    display: inline-block;
+    width: 100%;
+    font-family: inherit;
+    font-size: 18px;
+    color: #E0E0E0;
+    text-align: center;
+    border-bottom: 1px solid;
+    height: 30px;
+  
+}
+
+.hidden-menu-m > a:last-child{
+  border-bottom: none;
+}
+
+
 .hidden{
 	display: none;
 }
 
-.ham-menu{
+.ham-menu-s1{
 	  border: 1px solid #E0E0E0;
     width: 44px;
     height: 44px;
@@ -200,7 +295,7 @@ a:active {
     top: -10px;
     right: -13px;
 }
-.ham-menu div{
+.ham-menu-s1 div1{
 	  border-top: 3px solid #E0E0E0;
     width: 26px;
     margin-bottom: 5px;
@@ -211,23 +306,49 @@ a:active {
 
 
 /*rectangle-ham*/
-.ham-menu1 {
+.ham-menu-s {
     /* border: 1px solid #E0E0E0; */
     width: 44px;
-    height: 32px;
+    height: 30px;
     /* border-radius: 22px; */
     background: #0E76BD;
     position: absolute;
     top: 0px;
     right: 1px;
+    z-index: 5;
   
 }
-.ham-menu1 div1 {
+.ham-menu-s div {
     border-top: 3px solid #E0E0E0;
     width: 26px;
     margin-bottom: 5px;
     position: relative;
     top: 7px;
     left: 9px;
+  
+}
+
+
+
+/*rectangle-ham for main menu*/
+.ham-menu-m {
+    /* border: 1px solid #E0E0E0; */
+    width: 44px;
+    height: 30px;
+    /* border-radius: 22px; */
+    background: #E0E0E0;
+    position: absolute;
+    top: 0px;
+    left: 1px;
+    z-index: 5;
+}
+.ham-menu-m div {
+    border-top: 3px solid #0E76BD;
+    width: 26px;
+    margin-bottom: 5px;
+    position: relative;
+    top: 6px;
+    left: 9px;
+    
   
 }
