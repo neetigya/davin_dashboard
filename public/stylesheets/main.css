@@ -3,11 +3,12 @@ html { height: 100%; margin: 0;}
 body{
 	height: 100%; 
 	margin: 0;
-	background: antiquewhite;
+	background: #fff;
 	line-height: initial;
 	font-family: 'Source Sans Pro', sans serif;
   font-weight: 400;
   font-size: 14px;
+  min-width: 319px
 }
 
 div,p, ul,li, menu, dir{
@@ -22,36 +23,75 @@ div,p, ul,li, menu, dir{
 	line-height: initial;
 }
 
-header{
-	width: 100%;
-	/*float: left;*/
-
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: flex-end;
-	margin:0px;
-}
-#header-block header > div{
-	flex-grow: 1;
-} 
 a{
 	text-decoration: none;
 }
+
+header {
+  width: 100%;           /*float: left;*/
+  display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;				  /* NEW, Spec - Firefox, Chrome, Opera */
+  
+  -webkit-box-flex-direction: row;				  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  -ms-flexbox-flex-direction: row;				  /* TWEENER - IE 10 */
+  -webkit-flex-flex-direction: row;				  /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  flex-direction: row;				  /* NEW, Spec - Firefox, Chrome, Opera */
+ 
+  -webkit-box-flex-direction: row;				  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  -ms-flexbox-flex-direction: row;  /* TWEENER - IE 10 */
+  -webkit-flex-flex-direction: row;  /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  flex-direction: row;              /* NEW, Spec - Firefox, Chrome, Opera */
+ 
+  -webkit-box-justify-content: space-around;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  -ms-flexbox-justify-content: space-around;  /* TWEENER - IE 10 */
+  -webkit-flex-justify-content: space-around; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  justify-content: space-around;              /* NEW, Spec - Firefox, Chrome, Opera */
+ 
+  -webkit-box-align-items: flex-end;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  -ms-flexbox-align-items: flex-end;   /* TWEENER - IE 10 */
+  -webkit-flex-align-items: flex-end;  /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  align-items: flex-end;              /* NEW, Spec - Firefox, Chrome, Opera */
+  
+  flex-wrap: nowrap;
+  margin: 0px;
+}
+
+#page-top{
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+#header-block{
+  background: #fff;
+  width: 100%;
+  top:0px;
+}
+
 #header-logo{
-	max-width: 16%;
+  -webkit-box-flex: 1 1 16%;
+  -ms-flexbox-flex: 1 1 16%;
+  -webkit-flex-flex: 1 1 16%;
+   flex: 1 1 16%;
+	
 	margin: 0 0 -4px 0;
 	min-width: 255px;
+	transition: min-width 1s;
+	transition: flex .5s ease ;
 }
 #header-logo img{
 	width: 100%;
 }
 
 #header-content{
-	width: 76%;
+  -webkit-box-flex: 2 2 72%;
+  -ms-flexbox-flex: 2 2 72%;
+  -webkit-flex-flex: 2 2 72%;
+  flex: 2 2 72%;
 	/*display:inline-block;*/
 	margin: 0px;
-
+  transition: flex .5s ease ;
 	
 }
 #welcome-message{
@@ -60,9 +100,11 @@ a{
 
 #welcome-name{
 	font-size: 2vw; 
+	 -webkit-transition: font-size 0.2s linear;
 }
 #subcontractor-name{
 	font-size: 1.5vw;
+	 -webkit-transition: height 0.5s linear, font-size 0.2s linear;
 }
 
 .secondary-nav{
@@ -71,9 +113,11 @@ a{
 }
 .navigation{
   min-width: 150px;
+  height: 30px;
 	position: relative;
 	background-color: ghostwhite;
 	text-align: right;
+	transition: height .3s ease-in-out;
 	
 }
 .secondary-nav a {
@@ -88,19 +132,21 @@ a{
 }
 .navigation-main{
   min-width: 200px;
+  height: 30px;
   position: relative;
   width:  100%;
   background: #0E76BD;
   display: block;
+  transition: height .3s ease-in-out;
+  
 }
 
 .MainNav{
-  
   display: inline-block;
   position:relative;
 	padding-left: 15%;
-	
 }
+
 .MainNav a{
   display: inline-block; 
 	position: relative;
@@ -109,22 +155,28 @@ a{
   padding: 0 15px;
 	height: 30px;
 }
+
 #header-account-info{
-	width: 8%;
-	display: flex;
+	-webkit-box-flex: 1 1 12%;
+  -ms-flexbox-flex: 1 1 12%;
+  -webkit-flex-flex: 1 1 12%;
+  flex: 1 1 12%;
+  
   flex-direction: column;
-	flex-grow: 1;
+	
 	text-align: center;
-	margin: 0 0 1% 0;
+	margin: 0 0 2px 0;
+	transition: flex .5s ease ;
 }
+
 #header-account-info > #account-links >  a{
   display: inline-block;
 	color: #0E76BD;
   font-size: 16px;
-  margin-bottom: 2%;  
-  width: 100%;
+  margin-bottom: .5%;  
+  width: 75%;
+  border: 1px solid #0E76BD
 }
-
 
 /*.secondary-nav a:hover:after
 {
@@ -181,30 +233,122 @@ a{
   
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1224px) { /*desktop and laptops*/
    #account-links{
-      display: none; 
+      position: relative; 
    }
-   .arrow-down {
-     display: block;
+   #header-account-info > #account-links >  a{
+      font-size: 1.3vw;
+      margin-bottom: .5%;
+      z-index: auto;
+   }
+   #header-logo{
+     min-width: 20%;
    }
 }
 
+@media only screen and (max-width: 1024px) { /*desktop and laptops*/
+   #account-links{
+      position: absolute;
+      z-index: 1;
+      background:white;
+      border: 1px solid #0E76BD;
+   }
+   
+   #header-account-info > #account-links >  a{
+        margin: 0px;
+      background:white;
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #0E76BD;;
+      font-size:14px;
+   }
+    #header-account-info > #account-links >  a:last-child{
+      border-bottom: none;
+    }
+}
+
+
+@media only screen and (max-width: 768px) { /*desktop and laptops*/
+     
+    #header-logo{
+      flex: 1 1 12%;
+    } 
+    #header-content{
+       flex: 1 1 70%;
+    }
+    #header-account-info{
+        flex: 1 1 18%;
+    }
+    #welcome-name{
+      font-size:2.5vw;
+    }
+    #subcontractor-name{
+      /*visibility: hidden;*/
+      /*opacity: 0;
+      height:0px;*/
+      font-size: 0px;
+    }
+}
+
+@media only screen and (max-width: 495px) {
+  #header-logo{
+    min-width: 78px; 
+    flex: 1 1 8%;
+  }
+  #header-content{
+     display: flex;
+    flex:1 1 60%;
+    justify-content: flex-end;
+  }
+ 
+  #welcome-name{
+    font-size: 18px;
+    text-align: center;
+    border-bottom: .5px solid #0E76BD;
+    width: 100%;
+  }
+  div.ham-menu-m, div.ham-menu-s{
+    height: 33px;
+  }
+ 
+  header{
+    align-items: flex-start;
+  }
+  #header-account-info{
+    flex: 1 1 32%;
+  }
+   .navigation{
+    min-width: initial;
+    height: 33px;
+  }
+  .navigation-main{
+    height: 33px;
+  }
+  
+  div.hidden-menu-m, div.hidden-menu-s{
+    top:33px;
+  }
+}
+
 .arrow-down {
+  display: none;
   margin:auto;	
   width: 0; 
   height: 0; 
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-   border-bottom: 20px solid transparent;
   border-top: 20px solid #E0E0E0;
  	padding:0;
-
+ 	cursor: pointer;
 }
 
+.arrow-down:hover{
+  border-top-color: #AABBDD;
+}
 main{
 	width: 960px;
-	margin: 30px auto 0 auto; 
+	margin: 200px auto 0 auto; 
 }
 /*.secondary-nav a:link { 
   color: blue;
@@ -316,7 +460,12 @@ a:active {
     top: 0px;
     right: 1px;
     z-index: 5;
-  
+     cursor: pointer;
+     transition: height 0.2s linear;
+}
+div.ham-menu-s:hover, div.ham-menu-m:hover{
+  background: #AABBDD;
+  transition: background .5s linear;
 }
 .ham-menu-s div {
     border-top: 3px solid #E0E0E0;
@@ -339,8 +488,10 @@ a:active {
     background: #E0E0E0;
     position: absolute;
     top: 0px;
-    left: 1px;
+    left: 0px;
     z-index: 5;
+    cursor: pointer;
+      transition: height 0.2s linear;
 }
 .ham-menu-m div {
     border-top: 3px solid #0E76BD;
